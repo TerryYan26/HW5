@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>HTTP Method Test</title>
+    <style>
+        form * {
+            display: block;
+        }
+        #methodDisplay{
+            margin: 0px 0px 15px;
+        }
+        #submit-bt{
+            margin-top: 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="../index.html">Home</a></li>
+                <li class="nav-item"><a href="/methodtest.html">HW5 Part 1</a></li>
+                <li class="nav-item"> HW5 Part 2</a></li>
+            </ul>
+        </nav>
+        <h1>Part1:HTTP with JavaScript</h1>
+    <p>Request </p>        
+    </header>
+    <main>
+        <fieldset>
+            <legend>Select Button</legend>
+            <h2 id="selection">Select Method</h2>
+            <button id="post-bt">Post</button>
+            <button id="get-bt">Get</button>
+            <button id="put-bt">Put</button>
+            <button id="delete-bt">Delete</button>
+        </fieldset>
+        <fieldset>
+            <legend>Request Payload</legend>
+            <form id="http-form">
+                <label for="id">ID</label>
+                <input type="number" id="id" name="id">
+
+                <label for="article_name">Name</label>
+                <input type="text" id="article_name" name="article_name">
+
+                <label for="article_body">Body</label>
+                <textarea id="article_body" name="article_body" rows="10" cols="50"></textarea>
+
+                <label for="date">Date:</label>
+                <input type="text" id="date" name="date"readonly>
+            </form>
+            <button id="submit-bt">Submit</button>
+        </fieldset>
+    
+        <fieldset>
+        <legend>Server Response</legend>
+        <output id="response"></output>
+    </fieldset>
+    </main>    
+    <script type="module">
+        import * as http_method from './methodtest.js';
+        var now = new Date();
+        var dateInput = document.getElementById("date");
+        dateInput.value = now.toLocaleString();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            let selectedMethod = document.getElementById('selection');
+            http_method.ban();
+
+            document.getElementById('post-bt').addEventListener('click', () => {
+                selectedMethod.innerText = 'Post'
+                http_method.open();
+                dateInput.value = now.toLocaleString();
+
+            });
+            document.getElementById('get-bt').addEventListener('click', () => {
+                selectedMethod.innerText = 'Get'
+                http_method.remove();
+                http_method.ban();
+            });
+            document.getElementById('put-bt').addEventListener('click', () => {
+                selectedMethod.innerText = 'Put'
+                http_method.open();
+                dateInput.value = now.toLocaleString();
+            });
+            document.getElementById('delete-bt').addEventListener('click', () => {
+                selectedMethod.innerText = 'Delete'
+                http_method.remove();
+                http_method.ban();
+            });
+            document.getElementById('submit-bt').addEventListener('click', () => {
+                switch (selectedMethod.innerText) {
+                    case 'Post':
+                    http_method.PostR();
+                        break;
+                    case 'Get':
+                    http_method.GetR();
+                        break;
+                    case 'Put':
+                    http_method.PutR();
+                        break;
+                    case 'Delete':
+                    http_method.DelR();
+                        break;
+                }
+            });
+        });
+    </script>
+    </script>
+    </body>
