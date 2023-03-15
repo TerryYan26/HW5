@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> nativedialogs</title>
+    <script src="/js/DOMPurify-main/dist/purify.js" defer></script>
+   
+</head>
+<body>
+	<h1>Simple Dialogs?</h1>
+	<button id="alertbutton">Alert</button>
+	<button id="confirmbutton">Confirm</button>
+	<button id="promptbutton">Prompt</button>
+    <button id="Spromptbutton">Safer Prompt</button>
+	
+
+<hr>
+<b><output id="op"></output></b>
+	<script>
+		// Alert
+		document.getElementById('alertbutton').addEventListener('click', function() {
+			alert('Alert pressed!');
+		});
+
+		// Confirm
+		document.getElementById('confirmbutton').addEventListener('click', function() {
+			let text = "Do you Confirm this?";
+            if(confirm(text) == true){
+                text = "True";
+            }
+            else{
+                text = "False";
+            }
+			document.getElementById('op').textContent = `The value returned by the confirm method is : ${text}`;
+		});
+
+		// Prompt button click event
+		document.getElementById('promptbutton').addEventListener('click', function() {
+
+
+			let input = prompt('Please enter your name:');
+			if (input != null && input.trim() != '') {
+				let output = document.getElementById('op');
+				//output.textContent = `Prompt result: ${input}`;
+				document.getElementById("op").innerHTML = `Prompt result: `+input ;
+			} else {
+				let output = document.getElementById('op');
+				output.textContent = `Prompt result: User didn't enter anything`;
+			}
+		});
+		// safe prompt
+		document.getElementById('Spromptbutton').addEventListener('click', function() {
+
+
+		let input = prompt('Please enter your name:');
+		input = DOMPurify.sanitize(input);
+		if (input != null && input.trim() != '') {
+			let output = document.getElementById('op');
+			//	output.textContent = `Prompt result: ${input}`;
+			document.getElementById("op").innerHTML = `Prompt result: `+input ;
+		} else {
+			let output = document.getElementById('op');
+			output.textContent = `Prompt result: User didn't enter anything`;
+			}
+			});
+		
+	</script>
+</body>
+</html>

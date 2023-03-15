@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blogs</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center heading">Blogs</h1>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="columns medium-8 medium-offset-2">
+            <button onclick="openDialog()" class="button expanded">
+              <i class="fas fa-plus"></i> Create
+            </button>
+          </div>
+        </div>
+
+        <dialog id="post-dialog">
+          <form>
+            <div class="row">
+              <div class="columns medium-12">
+                <label for="post-title">Post Title:</label>
+                <input type="text" id="post-title" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns medium-6">
+                <label for="post-date">Post Date:</label>
+                <input type="date" id="post-date" >
+              </div>
+              <div class="columns medium-6">
+                <label for="post-time">Post Time:</label>
+                <input type="time" id="post-time" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns medium-12">
+                <label for="post-summary">Post Summary:</label>
+                <textarea id="post-summary" rows="5" ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns medium-6">
+                <button onclick="addPost()" class="button primary">
+                  <i class="fas fa-plus"></i> Add Post
+                </button>
+              </div>
+              <div class="columns medium-6">
+                <button onclick="closeDialog()" class="button alert">
+                  <i class="fas fa-times"></i> Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </dialog>
+
+        <ul id="list-items"></ul>
+      </div>
+    </main>
+
+    <script src="styledposts.js"></script>
+   
+</html>
+<style>
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  color: #007aff;
+}
+/* Set default font family */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Style header */
+header {
+  background-color: #333;
+  color: #662c2c;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Style main container */
+.container {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+/* Style form labels */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+button expanded{
+  color:red;
+}
+/* Style form inputs and textareas */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Style form buttons */
+button {
+  border: none;
+  border-radius: 3px;
+  color: #000000;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* Style primary button */
+.button.primary {
+  background-color: #007aff;
+}
+
+/* Style alert button */
+.button.alert {
+  background-color: #ff3b30;
+}
+
+/* Style success label */
+.label.success {
+  background-color: #4cd964;
+  border-radius: 3px;
+  color: #ff0000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Style alert label */
+.label.alert {
+  background-color: #ff2d55;
+  border-radius: 3px;
+  color: #da0707;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Style list items */
+
+
+li {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  position: relative;
+}
+
+li.done {
+  background-color: #e5e5e5;
+}
+
+li span {
+ 
+  right: 1rem;
+  top: 1 rem;
+}
+
+/* Style font awesome icons */
+.fa-plus,
+.fa-pencil-alt,
+.fa-trash-alt,
+.fa-times {
+  margin-right: 0.5rem;
+}
+
+/* Media queries */
+@media screen and (min-width: 40em) {
+  /* Style form inputs and textareas */
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  textarea {
+    font-size: 1.25rem;
+  }
+
+  /* Style form layout */
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Style form fields */
+  .form-field {
+    display:flex;
+flex-direction: column;
+margin-bottom: 1rem;
+}
+
+/* Style form labels */
+label {
+margin-bottom: 0.5rem;
+}
+
+/* Style form inputs and textareas */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+margin-bottom: 0.5rem;
+}
+
+/* Style form buttons */
+button {
+margin-top: 1rem;
+}
+
+/* Style list items */
+li {
+padding: auto;
+background-color: lightblue;
+padding-top: auto;
+  padding-right: auto;
+  padding-bottom: auto;
+  padding-left: auto;
+}
+
+/* Style list item icons */
+li span {
+font-size: 1.5rem;
+opacity: 0.5;
+transition: opacity 0.2s ease-in-out;
+}
+
+/* Style list item edit icon */
+li span.edit {
+margin-right: 1rem;
+}
+
+/* Style list item delete icon */
+li span.delete {
+margin-right: 0;
+}
+
+/* Style list item icons on hover */
+li:hover span {
+opacity: 1;
+}
+}
+</style>

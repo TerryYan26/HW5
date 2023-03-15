@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+	<title>Custom Dialog Box</title>
+</head>
+<style>
+    dialog{
+        text-align: center;
+    }
+</style>
+<script src="/js/DOMPurify-main/dist/purify.min.js" defer></script>
+<body>
+
+	<button id="alertdiabtn">Alert</button>
+    <button id="confirmbutton">Confirm</button>
+	<button id="promptbutton">Prompt</button>
+<hr>
+<b><output id="op"></output></b>
+
+
+
+
+
+	<!-- The dialog box element -->
+	<dialog id="ALDialog" >
+		<p>Alert pressed!</p>
+		<button id="okBtn" >OK</button>
+    
+	</dialog>
+
+
+
+
+    <dialog id="ConDialog" >
+		<p>Do you confirm this?</p>
+        <button id="CancelBtn1">Cancel</button>
+		<button id="okBtn2"  >OK</button>
+    </div>
+	</dialog>
+
+    <dialog id="ProDialog" >
+		<p>What is your name?</p>
+        <input type="text" id="text" />
+        <button id="CancelBtn2" >Cancel</button>
+		<button id="okBtn3" >OK</button>
+    </div>
+	</dialog>
+
+    <script type="module" >
+		import {Alert,Alertdischarge,Confirm,Prompt,Confirmcancel,Confirmok
+		,promptcancel,promptok} from "./customdialog.js";
+
+
+			window.addEventListener('DOMContentLoaded', function () {
+				const alertbt = document.getElementById('alertdiabtn');
+				alertbt.addEventListener('click', Alert, true);
+
+            	const okBtn = document.getElementById('okBtn');
+				okBtn.addEventListener('click', Alertdischarge, true);
+
+				const confirmbt = document.getElementById('confirmbutton');
+				confirmbt.addEventListener('click', Confirm, true);
+				
+				const promptbt = document.getElementById('promptbutton');
+				promptbt.addEventListener('click', Prompt, true);
+
+				const Cancelbt = document.getElementById('CancelBtn1');
+				Cancelbt.addEventListener('click', Confirmcancel, true);
+
+				const OKbt = document.getElementById('okBtn2');
+				OKbt.addEventListener('click', Confirmok, true);
+
+				const Cancelbt2 = document.getElementById('CancelBtn2');
+				Cancelbt2.addEventListener('click', promptcancel, true);
+
+				const OKbt2 = document.getElementById('okBtn3');
+				OKbt2.addEventListener('click', promptok, true);
+
+			})
+
+
+    </script>
+
+	
+</body>
+
+</html>

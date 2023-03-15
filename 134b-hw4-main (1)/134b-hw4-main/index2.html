@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>First HTML Website</title>
+
+  <meta charset="UTF-8">
+  <meta name="per" content="Free Web tutorials">
+  <meta name="description" content="Personal websites">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Ka Wing Yan">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="styledposts.js"></script>
+<script>// Smooth scrolling
+  $('a[href*="#"]')
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+        && 
+        location.hostname == this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000, function() {
+            var $target = $(target);
+            $target.focus();
+            if ($target.is(":focus")) {
+              return false;
+            } else {
+              $target.attr('tabindex','-1');
+              $target.focus();
+            };
+          });
+        }
+      }
+    });
+  
+  </script>
+  <style>html {
+    scroll-behavior: smooth;
+  }
+  </style>
+  <link rel="stylesheet" href="style.css">
+  
+<body>
+    <div class="container">
+        <header class="header">
+        <h1>MY First HTML page</h1>  
+        <a id="home"></a>  
+        </header>
+        <ul>
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#Carrer">Carrer</a></li>
+          <li><a href="#About" >About</a></li>
+          <li><a href="#Contact">Contact</a></li>
+         
+          <li><a href="nativedialogs.html">part1 </a></li>
+          <li><a href="Custom Dialogs.html">part2 </a></li>
+          <li><a href="crud.html">part3 </a></li>
+          <li><a href="styledcrud.html">part4 </a></li>
+          <li><a href="tepo.html?#EditHistory">Local Blog</a></li>
+        </ul>
+      </div>
+       <main>
+        <section class="myself">
+          <h5> I'm </h5>
+          <span class="blink">Terry Yan</span>
+        
+      <br><br><br>
+      <p class="ex">Computer engineering student at UC San Diego</p>
+        
+      </section>
+
+      <section>
+        <header>
+          <h2 class="About">
+          Career
+          <a id="Carrer"></a>
+          </h2>
+        </header>
+       
+        <div class="info1">
+          <article class="test1">
+            <h3>Student Assistant in ELAC</h3>
+            <img src="picture/Carrer.jpg" alt="working employee" >
+
+            
+          </article>
+          <article>
+            <h2>Experience</h2>
+            <br>
+          <br>
+          <br>
+          <br>
+            <div> <p class="text10">Good experience supporting multiple department and college staff and professor in different of office and administrative tasks. Excellent organizational skills and Working with different ethnicity; providing translation service with student that English not a native language. Relates well to students, faculty, staff and college members.
+          </p>
+          <article class="infoin">
+            <h2>Info</h2>
+          <ul class="ul1">
+            
+            <li class="li1">Tittle: Student Assistant</li>
+            <li class="li1">Department: Non-Credit Department</li>
+            <li class="li1">Date: 2020-2021</li>
+
+        </ul>
+      </article>
+        </div>
+          </article>
+          </div>
+          
+           
+      </section>
+        <section>
+          <header>
+            <a id="About"></a>
+            <h2 class="About">
+            About Me
+            
+            </h2>
+          </header>
+            <h3>Out of your comfort zone!</h3>
+            
+            <div class=" info">
+            <article class="infoin">
+              <h3>Cheung Sha Wan Catholic Secondary School</h3>
+              <img src="picture/cswcss1.jpg" alt="elac campus" >
+
+              <p>2011 - 2017</p>
+
+            </article>
+            <article class="infoin">
+              <h3>East Los Angeles College</h3>
+              <img src="picture/elac1.jpg" alt="elac campus">
+              <p>2018 - 2021</p>
+
+            </article>
+            <article class="infoin">
+              <h3>University of California, San Diegol</h3>
+              <img src="picture/ucsd1.jpg" alt="UCSD libary">
+              
+              <p>2021 - Present</p>
+            </article>
+            <br>
+            
+              
+            
+          
+            
+        </div>
+      
+      
+        </section>
+        
+        <hr>
+        <header>
+          <h2 class="About">
+          Contact
+          <a id="Contact"></a>
+          </h2>
+        </header>
+        <section id="contact-main">
+          <div id="contact-link">
+              <header id="contact-welcome-message">
+                  <h2>&nbsp;</h2>
+                  
+                  <h2>&nbsp;</h2>
+              </header>
+  
+              <article id="social-media-container">
+                <h2> &nbsp;</h2>
+                  <a class="social-media-icon" href="https://twitter.com" title="tw">
+                      <img src="picture/tw.svg" alt="tw">
+                  </a>
+                  <a class="social-media-icon" href="https://www.facebook.com/profile.php?id=100001675569912" title="fb">
+                      <img src="picture/fb.svg" alt="fb">
+                  </a>
+                  <a class="social-media-icon" href="https://www.instagram.com/kawing.yan/" title="ig">
+                      <img src="picture/ig.svg" alt="ig">
+                  </a>
+                  <!-- Update this link later -->
+                  <a class="social-media-icon" href="https://www.linkedin.com/in/ka-wing-terry-yan-1a77171b9/" title="LinkedIn">
+                      <img src="picture/ld.svg" alt="LinkedIn">
+                  </a>
+              </article>
+          </div>
+  
+          <aside id="contact-form">
+              <form action="https://httpbin.org/get" method="get">
+                  <h3>Send me a message</h3>
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" autofocus="" required="">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required="">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" required="">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="8" cols="50" placeholder="Type your thoughts here" required=""></textarea><br>
+                  <input type="submit" value="Submit" title="Send message">
+              </form>
+          </aside>
+      </section>
+       </main>
+    
+            
+         
+           
+
+            
+          
+      
+      
+      
+      
+    
+      
+        
+
+
+
+      
+
+
+  <footer>
+    <p class="foot">Author: Ka Wing Yan
+      <br>
+      w2yan@ucsd.edu</p>
+  </footer>
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>First HTML Website</title>
+  
+    <meta charset="UTF-8">
+    <meta name="per" content="Free Web tutorials">
+    <meta name="description" content="Personal websites">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Ka Wing Yan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    
+  <style>
+  </style>
+  <body>
+      <div class="container">
+          <header class="header">
+              <h1>Map</h1>
+              
+          </header>
+          <aside class="left">
+               <img src="indexpage.jpg" alt="indexpicture" width="180" height="170">
+              <ul>
+                <li><a  href="index.html">Home</a></li>
+              <li><a href="Career.html" >Career</a></li>
+              <li><a class="active" href="Map.html">Map</a></li>
+              <li><a href="About.html">About</a></li>
+              </ul>
+            </aside>  </div>
+            <main class="content">
+             
+      
+        
+        
+       
+       
+      
+  
+  
+  
+  <iframe src="https://www.ucsd.edu/" width="1600" height="1600" title="UCSD page">
+</iframe>
+<button onclick="showContent()">Hidden content</button>
+
+<template>
+  <h2>There are nothing!</h2>
+</template>
+
+<script>
+function showContent() {
+  var temp = document.getElementsByTagName("template")[0];
+  var clon = temp.content.cloneNode(true);
+  document.body.appendChild(clon);
+}
+</script>
+  
+  
+  
+  
+    <footer>
+      
+    </footer>
+  
+  
+    </main>
